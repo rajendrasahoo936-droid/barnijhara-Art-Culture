@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barnijhara Art School</title>
+
+<style>
+body{margin:0;font-family:Arial;background:#fdf8f4;scroll-behavior:smooth}
+
+/* HEADER */
+header{background:#AEC6CF;padding:15px;position:sticky;top:0}
+.header{display:flex;justify-content:space-between;align-items:center}
+.logo{height:50px}
+nav a{margin:10px;text-decoration:none;color:#333;font-weight:bold}
+.menu{display:none;font-size:25px;cursor:pointer}
+
+/* HERO */
+.hero{text-align:center;padding:120px 20px;background:#FFD7C4}
+.hero h1{font-size:40px}
+.hero button{padding:12px 25px;background:#F2B5A0;border:none;color:#fff;cursor:pointer}
+
+/* SECTION */
+.section{padding:60px 20px}
+.container{width:90%;margin:auto}
+
+/* ABOUT */
+.about{display:flex;gap:20px}
+.about img{width:200px;border-radius:10px}
+
+/* COURSES */
+ul{list-style:none;padding:0}
+li{padding:10px}
+
+/* GALLERY */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.gallery img{width:100%;border-radius:10px;cursor:pointer;transition:.3s}
+.gallery img:hover{transform:scale(1.05)}
+
+/* LIGHTBOX */
+#lightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);justify-content:center;align-items:center}
+#lightbox img{max-width:90%;max-height:80%}
+
+/* CONTACT */
+iframe{width:100%;height:300px;border:0}
+
+/* WHATSAPP */
+.whatsapp{position:fixed;bottom:20px;right:20px;background:green;color:#fff;padding:15px;border-radius:50%;text-decoration:none}
+
+/* FOOTER */
+footer{background:#AEC6CF;text-align:center;padding:20px;color:#fff}
+
+/* MOBILE */
+@media(max-width:768px){
+nav{display:none;flex-direction:column}
+nav.active{display:flex}
+.menu{display:block}
+.about{flex-direction:column}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header container">
+    <img src="logo.png" class="logo">
+    <div class="menu" onclick="toggleMenu()">☰</div>
+    <nav id="nav">
+      <a href="#about">About</a>
+      <a href="#courses">Courses</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Barnijhara Art School</h1>
+  <p>Art Education for All Ages</p>
+  <button onclick="goContact()">Enroll Now</button>
+</section>
+
+<section id="about" class="section">
+  <div class="container about">
+    <img src="teacher.jpg">
+    <div>
+      <h2>About</h2>
+      <p>Professional art education with certification. Learn watercolor, sketching, and traditional art.</p>
+    </div>
+  </div>
+</section>
+
+<section id="courses" class="section">
+  <div class="container">
+    <h2>Courses</h2>
+    <ul>
+      <li>Watercolor Painting</li>
+      <li>Sketching</li>
+      <li>Digital Art</li>
+      <li>Traditional Art</li>
+    </ul>
+  </div>
+</section>
+
+<section id="gallery" class="section">
+  <div class="container">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="art1.jpg" onclick="openImg(this)">
+      <img src="art2.jpg" onclick="openImg(this)">
+      <img src="art3.jpg" onclick="openImg(this)">
+      <img src="art4.jpg" onclick="openImg(this)">
+    </div>
+  </div>
+</section>
+
+<div id="lightbox" onclick="closeImg()">
+  <img id="lightimg">
+</div>
+
+<section id="contact" class="section">
+  <div class="container">
+    <h2>Contact</h2>
+    <p>📞 +91-XXXXXXXXXX</p>
+    <iframe src="https://www.google.com/maps/embed?pb=YOUR_MAP_LINK"></iframe>
+  </div>
+</section>
+
+<a href="https://wa.me/91XXXXXXXXXX" class="whatsapp">💬</a>
+
+<footer>
+  <p>© 2026 Barnijhara Art School</p>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById("nav").classList.toggle("active");
+}
+
+function goContact(){
+  document.getElementById("contact").scrollIntoView();
+}
+
+function openImg(img){
+  document.getElementById("lightbox").style.display="flex";
+  document.getElementById("lightimg").src=img.src;
+}
+
+function closeImg(){
+  document.getElementById("lightbox").style.display="none";
+}
+</script>
+
+</body>
+</html>
